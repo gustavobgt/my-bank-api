@@ -76,4 +76,63 @@ router.delete('/:id', (req, res) => {
     }
   });
 });
+
+router.put('/', (req, res) => {
+  let newAccount = req.body;
+
+  fs.readFile(global.fileName, 'utf8', (err, data) => {
+    try {
+      if (err) throw err;
+      json = JSON.parse(data);
+      // prettier-ignore
+      const oldIndex = json.accounts.findIndex(account => account.id === newAccount.id);
+
+      const { name, balance } = newAccount;
+
+      json.accounts[oldIndex].name = name;
+      json.accounts[oldIndex].balance = balance;
+
+      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
+        if (err) {
+          res.status(400).send({ error: err.message });
+        } else {
+          res.end();
+        }
+      });
+    } catch (err) {
+      res.status(400).send({ error: err.message });
+    }
+  });
+});
+
+router.post('/transaction', (req, res) => {
+  let params = req.body;
+
+  fs.readFile(global.fileName, 'utf8', (err, data) => {
+    try {
+      if (err) throw err;
+      json = JSON.parse(data);
+      // prettier-ignore
+      const index = json.accounts.findIndex(account => account.id === params.id);
+
+      if (params.value < 0 && json.accounts[index].balance + params.value < 0) {
+        throw new Error('Não há saldo suficiente para saque');
+      }
+
+      json.accounts[index].balance += params.value;
+
+      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
+        if (err) {
+          res.status(400).send({ error: err.message });
+        } else {
+          // prettier-ignore
+          res.send(json.accounts[index]);
+        }
+      });
+    } catch (err) {
+      res.status(400).send({ error: err.message });
+    }
+  });
+});
+
 module.exports = router;
