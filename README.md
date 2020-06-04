@@ -1,2 +1,11 @@
 # my-bank-api
-É uma API que simula a API de um banco com as funcionalidades de criação de usuário 👤, depósito 💲, saque, consulta de saldo e exclusão de usuário.
+
+## Description
+It is an API that simulates a bank's API with the functionality of user creation 👤, deposit 💲, withdrawal, balance inquiry and user exclusion.
+
+## Technologies
+This software uses some open source packages.
+
+- [Node.js](https://nodejs.org/)
+- [Express](https://github.com/expressjs/express)
+- [Nodemon](https://github.com/remy/nodemon)
