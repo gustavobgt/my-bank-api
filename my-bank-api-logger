@@ -1,0 +1,14 @@
+2020-06-04T18:59:56.559Z [my-bank-api] info: API Started!
+2020-06-04T19:03:19.106Z [my-bank-api] info: API Started!
+2020-06-04T19:04:17.872Z [my-bank-api] info: POST /account - {"id":6,"name":"Júlo Cesar","balance":3350}
+2020-06-04T19:05:06.389Z [my-bank-api] info: API Started!
+2020-06-04T19:05:30.892Z [my-bank-api] info: API Started!
+2020-06-04T19:07:10.427Z [my-bank-api] info: API Started!
+2020-06-04T19:09:27.966Z [my-bank-api] info: API Started!
+2020-06-04T19:11:11.478Z [my-bank-api] info: API Started!
+2020-06-04T19:13:17.624Z [my-bank-api] info: API Started!
+2020-06-04T19:14:04.750Z [my-bank-api] info: API Started!
+2020-06-04T19:14:14.269Z [my-bank-api] info: GET /account
+2020-06-04T19:14:40.903Z [my-bank-api] info: API Started!
+2020-06-04T19:14:43.915Z [my-bank-api] info: PUT /account - {"id":6,"value":5000}
+2020-06-04T19:14:57.563Z [my-bank-api] info: API Started!

@@ -13,8 +13,10 @@ router.post('/', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.end();
+    logger.info(`POST /account - ${JSON.stringify(account)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`POST /account ${err.message}`);
   }
 });
 
@@ -25,8 +27,10 @@ router.get('/', async (_, res) => {
 
     delete json.nextId;
     res.send(json);
+    logger.info('GET /account');
   } catch {
     res.status(400).send({ error: err.message });
+    logger.error(`GET /account ${err.message}`);
   }
 });
 
@@ -39,8 +43,10 @@ router.get('/:id', async (req, res) => {
     const account = json.accounts.find((account) => account.id === id);
 
     account ? res.send(account) : res.end();
+    logger.info(`GET /account:id - ${JSON.stringify(account)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`GET /account:id ${err.message}`);
   }
 });
 
@@ -55,8 +61,10 @@ router.delete('/:id', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.end();
+    logger.info(`DELETE /account:id - ${req.params.id}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`DELETE /account:id ${err.message}`);
   }
 });
 
@@ -75,9 +83,12 @@ router.put('/', async (req, res) => {
 
   await fs.writeFile(global.fileName, JSON.stringify(json));
   res.end();
+  logger.info(`PUT /account - ${JSON.stringify(newAccount)}`);
+
   try {
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`PUT /account ${err.message}`);
   }
 });
 
@@ -98,8 +109,10 @@ router.post('/transaction', async (req, res) => {
 
     await fs.writeFile(global.fileName, JSON.stringify(json));
     res.send(json.accounts[index]);
+    logger.info(`POST /account - ${JSON.stringify(params)}`);
   } catch (err) {
     res.status(400).send({ error: err.message });
+    logger.error(`POST /account/transaction ${err.message}`);
   }
 });
 
