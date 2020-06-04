@@ -1,138 +1,106 @@
-let express = require('express');
-let router = express.Router();
-let fs = require('fs');
+const express = require('express');
+const router = express.Router();
+const fs = require('fs').promises;
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   let account = req.body;
 
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
+  try {
+    const data = await fs.readFile(global.fileName, 'utf8');
+    let json = JSON.parse(data);
+    account = { id: json.nextId++, ...account };
+    json.accounts.push(account);
 
-      let json = JSON.parse(data);
-      account = { id: json.nextId++, ...account };
-      json.accounts.push(account);
-
-      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
-        if (err) {
-          res.status(400).send({ error: err.message });
-        } else {
-          res.end();
-        }
-      });
-    } catch (err) {
-      res.status(400).send({ error: err.message });
-    }
-  });
+    await fs.writeFile(global.fileName, JSON.stringify(json));
+    res.end();
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
-router.get('/', (_, res) => {
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
-      let json = JSON.parse(data);
-      delete json.nextId;
-      res.send(json);
-    } catch (err) {
-      res.status(400).send({ error: err.message });
-    }
-  });
+router.get('/', async (_, res) => {
+  try {
+    const data = await fs.readFile(global.fileName, 'utf8');
+    let json = JSON.parse(data);
+
+    delete json.nextId;
+    res.send(json);
+  } catch {
+    res.status(400).send({ error: err.message });
+  }
 });
 
-router.get('/:id', (req, res) => {
-  let id = parseInt(req.params.id, 10);
+router.get('/:id', async (req, res) => {
+  const id = parseInt(req.params.id, 10);
 
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
-      let json = JSON.parse(data);
-      const account = json.accounts.find((account) => account.id === id);
-      account ? res.send(account) : res.end();
-    } catch (err) {
-      res.status(400).send({ error: err.message });
-    }
-  });
+  try {
+    const data = await fs.readFile(global.fileName, 'utf8');
+    const json = JSON.parse(data);
+    const account = json.accounts.find((account) => account.id === id);
+
+    account ? res.send(account) : res.end();
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
-router.delete('/:id', (req, res) => {
-  let id = parseInt(req.params.id, 10);
+router.delete('/:id', async (req, res) => {
+  const id = parseInt(req.params.id, 10);
 
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
-      let json = JSON.parse(data);
-      const accounts = json.accounts.filter((account) => account.id !== id);
-      json.accounts = accounts;
+  try {
+    const data = await fs.readFile(global.fileName, 'utf8');
+    let json = JSON.parse(data);
+    const accounts = json.accounts.filter((account) => account.id !== id);
+    json.accounts = accounts;
 
-      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
-        if (err) {
-          res.status(400).send({ error: err.message });
-        } else {
-          res.end();
-        }
-      });
-    } catch (err) {
-      res.status(400).send({ error: err.message });
-    }
-  });
+    await fs.writeFile(global.fileName, JSON.stringify(json));
+    res.end();
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
-router.put('/', (req, res) => {
-  let newAccount = req.body;
+router.put('/', async (req, res) => {
+  const newAccount = req.body;
+  let data = await fs.readFile(global.fileName, 'utf8');
 
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
-      json = JSON.parse(data);
-      // prettier-ignore
-      const oldIndex = json.accounts.findIndex(account => account.id === newAccount.id);
+  let json = JSON.parse(data);
+  // prettier-ignore
+  const oldIndex = json.accounts.findIndex(account => account.id === newAccount.id);
 
-      const { name, balance } = newAccount;
+  const { name, balance } = newAccount;
 
-      json.accounts[oldIndex].name = name;
-      json.accounts[oldIndex].balance = balance;
+  json.accounts[oldIndex].name = name;
+  json.accounts[oldIndex].balance = balance;
 
-      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
-        if (err) {
-          res.status(400).send({ error: err.message });
-        } else {
-          res.end();
-        }
-      });
-    } catch (err) {
-      res.status(400).send({ error: err.message });
-    }
-  });
+  await fs.writeFile(global.fileName, JSON.stringify(json));
+  res.end();
+  try {
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
-router.post('/transaction', (req, res) => {
-  let params = req.body;
+router.post('/transaction', async (req, res) => {
+  const params = req.body;
 
-  fs.readFile(global.fileName, 'utf8', (err, data) => {
-    try {
-      if (err) throw err;
-      json = JSON.parse(data);
-      // prettier-ignore
-      const index = json.accounts.findIndex(account => account.id === params.id);
+  try {
+    const data = await fs.readFile(global.fileName, 'utf8');
+    let json = JSON.parse(data);
+    // prettier-ignore
+    const index = json.accounts.findIndex(account => account.id === params.id);
 
-      if (params.value < 0 && json.accounts[index].balance + params.value < 0) {
-        throw new Error('Não há saldo suficiente para saque');
-      }
-
-      json.accounts[index].balance += params.value;
-
-      fs.writeFile(global.fileName, JSON.stringify(json), (err) => {
-        if (err) {
-          res.status(400).send({ error: err.message });
-        } else {
-          // prettier-ignore
-          res.send(json.accounts[index]);
-        }
-      });
-    } catch (err) {
-      res.status(400).send({ error: err.message });
+    if (params.value < 0 && json.accounts[index].balance + params.value < 0) {
+      throw new Error('Não há saldo suficiente para saque');
     }
-  });
+
+    json.accounts[index].balance += params.value;
+
+    await fs.writeFile(global.fileName, JSON.stringify(json));
+    res.send(json.accounts[index]);
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
 module.exports = router;
