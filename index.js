@@ -1,13 +1,15 @@
-const express = require('express');
+import express from 'express';
+import { promises } from 'fs';
+import winston from 'winston';
+import accountsRouter from './routes/accounts.js';
+
 const app = express();
-const fs = require('fs').promises;
-const accountsRouter = require('./routes/accounts.js');
-const winston = require('winston');
+const readFile = promises.readFile;
+const writeFile = promises.writeFile;
 
 global.fileName = 'accounts.json';
 
 const { combine, timestamp, label, printf } = winston.format;
-
 const myFormat = printf(({ level, message, label, timestamp }) => {
   return `${timestamp} [${label}] ${level}: ${message}`;
 });
@@ -34,7 +36,7 @@ app.use('/account', accountsRouter);
 
 app.listen(3000, async () => {
   try {
-    await fs.readFile(global.fileName, 'utf8');
+    await readFile(global.fileName, 'utf8');
     logger.info('API Started!');
   } catch (err) {
     const initialJson = {
@@ -42,12 +44,10 @@ app.listen(3000, async () => {
       accounts: [],
     };
 
-    fs.writeFile(global.fileName, JSON.stringify(initialJson), (err) => {
+    await writeFile(global.fileName, JSON.stringify(initialJson), (err) => {
       if (err) {
         logger.error(err);
       }
     });
   }
 });
-
-// Fica rodando esperando noas requisições

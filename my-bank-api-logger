@@ -12,3 +12,95 @@
 2020-06-04T19:14:40.903Z [my-bank-api] info: API Started!
 2020-06-04T19:14:43.915Z [my-bank-api] info: PUT /account - {"id":6,"value":5000}
 2020-06-04T19:14:57.563Z [my-bank-api] info: API Started!
+2020-06-05T18:29:23.576Z [my-bank-api] info: API Started!
+2020-06-05T18:29:34.232Z [my-bank-api] info: GET /account
+2020-06-05T18:29:38.612Z [my-bank-api] error: POST /account The value "{"nextId":8,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:29:51.398Z [my-bank-api] info: GET /account
+2020-06-05T18:30:19.342Z [my-bank-api] error: POST /account The value "{"nextId":8,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:30:21.930Z [my-bank-api] info: GET /account
+2020-06-05T18:30:54.322Z [my-bank-api] info: GET /account:id - {"id":2,"name":"Gustavo Bruno","balance":5350}
+2020-06-05T18:30:58.866Z [my-bank-api] info: GET /account:id - {"id":3,"name":"Mário César","balance":5350}
+2020-06-05T18:31:03.873Z [my-bank-api] info: GET /account
+2020-06-05T18:31:09.253Z [my-bank-api] error: DELETE /account:id The value "{"nextId":7,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350}]}" is invalid for option "encoding"
+2020-06-05T18:31:19.659Z [my-bank-api] info: GET /account
+2020-06-05T18:31:24.148Z [my-bank-api] error: POST /account The value "{"nextId":8,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:32:10.712Z [my-bank-api] info: API Started!
+2020-06-05T18:32:21.745Z [my-bank-api] error: POST /account The value "{"nextId":8,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:35:40.151Z [my-bank-api] error: POST /account/transaction The value "{"nextId":7,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":18350}]}" is invalid for option "encoding"
+2020-06-05T18:38:34.378Z [my-bank-api] info: API Started!
+2020-06-05T18:38:39.528Z [my-bank-api] info: POST /account - {"id":7,"name":"Júlo Cesar","balance":3350}
+2020-06-05T18:39:09.576Z [my-bank-api] info: API Started!
+2020-06-05T18:39:12.216Z [my-bank-api] error: POST /account The value "{"nextId":9,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350},{"id":8,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:39:26.472Z [my-bank-api] info: API Started!
+2020-06-05T18:39:29.287Z [my-bank-api] error: POST /account readFile is not defined
+2020-06-05T18:41:21.265Z [my-bank-api] info: API Started!
+2020-06-05T18:41:21.519Z [my-bank-api] error: POST /account The value "{"nextId":9,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350},{"id":8,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:41:47.089Z [my-bank-api] info: API Started!
+2020-06-05T18:41:49.552Z [my-bank-api] error: POST /account The value "{"nextId":9,"accounts":[{"id":1,"name":"Gabriel Santos","balance":1450},{"id":2,"name":"Gustavo Bruno","balance":5350},{"id":3,"name":"Mário César","balance":5350},{"id":4,"name":"Marina Gabriela","balance":2350},{"id":6,"name":"Júlo Cesar","balance":13350},{"id":7,"name":"Júlo Cesar","balance":3350},{"id":8,"name":"Júlo Cesar","balance":3350}]}" is invalid for option "encoding"
+2020-06-05T18:42:30.489Z [my-bank-api] info: API Started!
+2020-06-05T18:43:10.741Z [my-bank-api] info: API Started!
+2020-06-05T18:43:14.164Z [my-bank-api] error: POST /account writeFile is not defined
+2020-06-05T18:43:29.344Z [my-bank-api] info: API Started!
+2020-06-05T18:43:31.951Z [my-bank-api] info: POST /account - {"id":8,"name":"Júlo Cesar","balance":3350}
+2020-06-05T18:43:37.590Z [my-bank-api] info: GET /account
+2020-06-05T18:47:37.729Z [my-bank-api] info: API Started!
+2020-06-05T18:47:41.819Z [my-bank-api] info: GET /account
+2020-06-05T18:47:45.129Z [my-bank-api] info: POST /account - {"id":1,"name":"Júlo Cesar","balance":3350}
+2020-06-05T18:47:47.576Z [my-bank-api] info: GET /account
+2020-06-05T18:48:06.225Z [my-bank-api] info: POST /account - {"id":2,"name":"Mário César","balance":4250}
+2020-06-05T18:48:09.451Z [my-bank-api] info: GET /account
+2020-06-05T18:48:20.304Z [my-bank-api] info: POST /account - {"id":3,"name":"Gustavo Bruno","balance":550}
+2020-06-05T18:48:22.001Z [my-bank-api] info: GET /account
+2020-06-05T18:48:25.480Z [my-bank-api] info: GET /account:id - {"id":2,"name":"Mário César","balance":4250}
+2020-06-05T18:48:29.300Z [my-bank-api] info: GET /account:id - {"id":1,"name":"Júlo Cesar","balance":3350}
+2020-06-05T18:48:33.343Z [my-bank-api] info: DELETE /account:id - 2
+2020-06-05T18:48:35.405Z [my-bank-api] info: GET /account
+2020-06-05T18:48:41.440Z [my-bank-api] info: PUT /account - {"id":1,"name":"Maria Gabi","balance":1450}
+2020-06-05T18:48:43.971Z [my-bank-api] info: GET /account
+2020-06-05T18:48:48.767Z [my-bank-api] info: POST /account - {"id":1,"value":5000}
+2020-06-05T18:48:50.267Z [my-bank-api] info: POST /account - {"id":1,"value":5000}
+2020-06-05T18:48:55.944Z [my-bank-api] info: POST /account - {"id":1,"value":-4000}
+2020-06-05T18:48:59.842Z [my-bank-api] error: POST /account/transaction Não há saldo suficiente para saque
+2020-06-05T18:49:25.287Z [my-bank-api] info: API Started!
+2020-06-05T18:50:24.248Z [my-bank-api] info: API Started!
+2020-06-05T18:50:31.665Z [my-bank-api] info: API Started!
+2020-06-05T18:50:39.327Z [my-bank-api] info: API Started!
+2020-06-05T18:50:45.181Z [my-bank-api] info: GET /account
+2020-06-05T18:50:47.265Z [my-bank-api] info: POST /account - {"id":4,"name":"Gustavo Bruno","balance":550}
+2020-06-05T18:50:48.911Z [my-bank-api] info: GET /account
+2020-06-05T18:50:52.975Z [my-bank-api] info: GET /account:id - {"id":1,"name":"Maria Gabi","balance":7450}
+2020-06-05T18:50:54.917Z [my-bank-api] info: GET /account
+2020-06-05T18:51:02.352Z [my-bank-api] info: DELETE /account:id - 1
+2020-06-05T18:51:04.028Z [my-bank-api] info: GET /account
+2020-06-05T18:51:11.741Z [my-bank-api] info: GET /account
+2020-06-05T18:51:19.907Z [my-bank-api] info: POST /account - {"id":5,"name":"Mário César","balance":550}
+2020-06-05T18:51:21.493Z [my-bank-api] info: POST /account - {"id":6,"name":"Mário César","balance":550}
+2020-06-05T18:51:23.327Z [my-bank-api] info: GET /account
+2020-06-05T18:51:32.086Z [my-bank-api] info: GET /account
+2020-06-05T18:51:37.962Z [my-bank-api] info: DELETE /account:id - 5
+2020-06-05T18:51:40.065Z [my-bank-api] info: GET /account
+2020-06-05T18:51:45.968Z [my-bank-api] info: GET /account
+2020-06-05T18:51:54.638Z [my-bank-api] info: DELETE /account:id - 6
+2020-06-05T18:51:56.144Z [my-bank-api] info: GET /account
+2020-06-05T18:52:03.164Z [my-bank-api] info: GET /account
+2020-06-05T18:52:08.477Z [my-bank-api] info: POST /account - {"id":3,"value":8000}
+2020-06-05T18:52:10.522Z [my-bank-api] info: POST /account - {"id":3,"value":8000}
+2020-06-05T18:52:15.709Z [my-bank-api] info: POST /account - {"id":3,"value":-7000}
+2020-06-05T18:52:20.330Z [my-bank-api] error: POST /account/transaction Não há saldo suficiente para saque
+2020-06-05T18:57:07.792Z [my-bank-api] info: API Started!
+2020-06-05T18:57:20.546Z [my-bank-api] info: GET /account
+2020-06-05T18:58:12.372Z [my-bank-api] info: API Started!
+2020-06-05T18:58:16.559Z [my-bank-api] info: POST /account - {"id":7,"name":"Mário César","balance":550}
+2020-06-05T18:58:18.543Z [my-bank-api] info: GET /account
+2020-06-05T18:58:50.667Z [my-bank-api] info: POST /account - {"id":8,"name":"Gabriela Santos","balance":3550}
+2020-06-05T18:58:53.240Z [my-bank-api] info: GET /account
+2020-06-05T18:59:00.238Z [my-bank-api] info: DELETE /account:id - 3
+2020-06-05T18:59:01.592Z [my-bank-api] info: DELETE /account:id - 3
+2020-06-05T18:59:03.763Z [my-bank-api] info: GET /account
+2020-06-05T18:59:21.662Z [my-bank-api] info: POST /account - {"id":9,"name":"Jennifer Santos","balance":5550}
+2020-06-05T18:59:23.361Z [my-bank-api] info: GET /account
+2020-06-05T18:59:34.727Z [my-bank-api] error: POST /account/transaction Cannot read property 'balance' of undefined
+2020-06-05T18:59:39.446Z [my-bank-api] info: POST /account - {"id":7,"value":10000}
+2020-06-05T18:59:41.738Z [my-bank-api] info: POST /account - {"id":7,"value":10000}
+2020-06-05T18:59:45.432Z [my-bank-api] info: POST /account - {"id":7,"value":-10000}
+2020-06-05T18:59:50.858Z [my-bank-api] error: POST /account/transaction Não há saldo suficiente para saque
