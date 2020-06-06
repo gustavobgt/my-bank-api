@@ -104,3 +104,10 @@
 2020-06-05T18:59:41.738Z [my-bank-api] info: POST /account - {"id":7,"value":10000}
 2020-06-05T18:59:45.432Z [my-bank-api] info: POST /account - {"id":7,"value":-10000}
 2020-06-05T18:59:50.858Z [my-bank-api] error: POST /account/transaction Não há saldo suficiente para saque
+2020-06-06T19:56:12.752Z [my-bank-api] info: API Started!
+2020-06-06T19:56:33.848Z [my-bank-api] info: GET /account
+2020-06-06T19:57:06.298Z [my-bank-api] info: POST /account - {"id":10,"name":"Marcela Dias","balance":742.34}
+2020-06-06T19:57:18.277Z [my-bank-api] info: GET /account
+2020-06-06T19:57:56.465Z [my-bank-api] info: GET /account
+2020-06-06T19:58:21.828Z [my-bank-api] info: POST /account - {"id":11,"name":"Ricardo Ramos","balance":742.34}
+2020-06-06T19:58:32.541Z [my-bank-api] info: GET /account

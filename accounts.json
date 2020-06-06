@@ -1,9 +1,1 @@
-{
-  "nextId": 10,
-  "accounts": [
-    { "id": 4, "name": "Gustavo Bruno", "balance": 550 },
-    { "id": 7, "name": "Mário César", "balance": 10550 },
-    { "id": 8, "name": "Gabriela Santos", "balance": 3550 },
-    { "id": 9, "name": "Jennifer Santos", "balance": 5550 }
-  ]
-}
+{"nextId":12,"accounts":[{"id":4,"name":"Gustavo Bruno","balance":550},{"id":7,"name":"Mário César","balance":10550},{"id":8,"name":"Gabriela Santos","balance":3550},{"id":9,"name":"Jennifer Santos","balance":5550},{"id":10,"name":"Marcela Dias","balance":742.34},{"id":11,"name":"Ricardo Ramos","balance":742.34}]}
